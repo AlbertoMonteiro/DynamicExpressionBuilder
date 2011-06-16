@@ -8,7 +8,6 @@ namespace DynamicExpressionBuilder
     public class FilterExpression<T>
     {
         public Func<T, bool> ResultExpression { get { return GetWhereExpression(); } }
-
         private readonly List<FilterCommand<T>> _filtersCommands;
 
         public FilterExpression()
@@ -25,17 +24,35 @@ namespace DynamicExpressionBuilder
 
         public FilterExpression<T> And(Expression<Func<T, bool>> expression)
         {
-            if (_filtersCommands.Count < 1) throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
-            var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.And);
-            _filtersCommands.Add(filterCommand);
+            return And(expression, true);
+        }
+
+        public FilterExpression<T> And(Expression<Func<T, bool>> expression, bool condition)
+        {
+            if (condition)
+            {
+                if (_filtersCommands.Count < 1)
+                    throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
+                var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.And);
+                _filtersCommands.Add(filterCommand);
+            }
             return this;
         }
 
         public FilterExpression<T> Or(Expression<Func<T, bool>> expression)
         {
-            if (_filtersCommands.Count < 1) throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
-            var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.Or);
-            _filtersCommands.Add(filterCommand);
+            return Or(expression, true);
+        }
+
+        public FilterExpression<T> Or(Expression<Func<T, bool>> expression, bool condition)
+        {
+            if (condition)
+            {
+                if (_filtersCommands.Count < 1)
+                    throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
+                var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.Or);
+                _filtersCommands.Add(filterCommand);
+            }
             return this;
         }
 
