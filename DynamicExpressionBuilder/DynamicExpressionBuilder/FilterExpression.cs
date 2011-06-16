@@ -8,17 +8,11 @@ namespace DynamicExpressionBuilder
     public class FilterExpression<T>
     {
         public Func<T, bool> ResultExpression { get { return GetWhereExpression(); } }
-        private readonly List<FilterCommand<T>> _filtersCommands;
-
-        public FilterExpression()
-        {
-            _filtersCommands = new List<FilterCommand<T>>();
-        }
+        private Expression<Func<T, bool>> _completeExpression;
 
         public FilterExpression<T> Start(Expression<Func<T, bool>> expression)
         {
-            var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.And);
-            _filtersCommands.Add(filterCommand);
+            _completeExpression = expression;
             return this;
         }
 
@@ -31,10 +25,10 @@ namespace DynamicExpressionBuilder
         {
             if (condition)
             {
-                if (_filtersCommands.Count < 1)
-                    throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
-                var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.And);
-                _filtersCommands.Add(filterCommand);
+                var c1 = _completeExpression.Compile();
+                var c2 = expression.Compile();
+
+                _completeExpression = p => c1(p) && c2(p);
             }
             return this;
         }
@@ -48,32 +42,20 @@ namespace DynamicExpressionBuilder
         {
             if (condition)
             {
-                if (_filtersCommands.Count < 1)
-                    throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
-                var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.Or);
-                _filtersCommands.Add(filterCommand);
+                var c1 = _completeExpression.Compile();
+                var c2 = expression.Compile();
+
+                _completeExpression = p => c1(p) || c2(p);
             }
             return this;
         }
 
         private Func<T, bool> GetWhereExpression()
         {
-            Expression<Func<T, bool>> filtro = entidade => true;
-
-            foreach (var expression in _filtersCommands)
-            {
-                var func = expression.filter.Compile();
-                var compile1 = filtro.Compile();
-                if (expression.typeCommand == TypeFilterCommand.And)
-                    filtro = entidade => func(entidade) && compile1(entidade);
-                else
-                    filtro = entidade => func(entidade) || compile1(entidade);
-            }
-
-            var invocationExpression = Expression.Invoke(filtro, (IEnumerable<Expression>)filtro.Parameters);
-            var binaryExpression = Expression.AndAlso(filtro.Body, invocationExpression);
+            var invocationExpression = Expression.Invoke(_completeExpression, (IEnumerable<Expression>)_completeExpression.Parameters);
+            var binaryExpression = Expression.AndAlso(_completeExpression.Body, invocationExpression);
             var andAlso = Expression.AndAlso(binaryExpression, invocationExpression);
-            var lambdaExpression = Expression.Lambda<Func<T, bool>>(andAlso, filtro.Parameters);
+            var lambdaExpression = Expression.Lambda<Func<T, bool>>(andAlso, _completeExpression.Parameters);
 
             return lambdaExpression.Compile();
         }

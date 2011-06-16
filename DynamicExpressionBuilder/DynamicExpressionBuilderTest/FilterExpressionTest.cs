@@ -16,7 +16,7 @@ namespace DynamicExpressionBuilderTest
         public void StartTest()
         {
             peoples = new List<Person>();
-            for (long i = 0; i < 1000000; i++)
+            for (long i = 0; i < 1000; i++)
             {
                 peoples.Add(new Person(Guid.NewGuid().ToString(), (int)i, i % 2 == 0));
             }
@@ -29,7 +29,7 @@ namespace DynamicExpressionBuilderTest
 
             target.Start(p => p.Name.Contains("o")).And(p => p.Age <= 25);
 
-            var persons = peoples.Where(target.ResultExpression);
+            var persons = peoples.Where(p => target.ResultExpression(p));
 
             var expected = peoples.Where(p => p.Name.Contains("o") && p.Age <= 25);
 
@@ -44,7 +44,7 @@ namespace DynamicExpressionBuilderTest
 
             target.Start(p => p.Name.Contains("o")).Or(p => p.Age <= 25);
 
-            var persons = peoples.Where(target.ResultExpression);
+            var persons = peoples.Where(p => target.ResultExpression(p));
 
             var expected = peoples.Where(p => p.Name.Contains("o") || p.Age <= 25);
 
@@ -59,13 +59,33 @@ namespace DynamicExpressionBuilderTest
 
             target.Start(p => p.Name.Contains("o")).And(p => p.Age <= 25);
 
-            var persons = peoples.Where(target.ResultExpression);
+            var persons = peoples.Where(p => target.ResultExpression(p));
 
             var expected = peoples.Where(p => p.Name.Contains("o"));
             expected = expected.Where(p => p.Age <= 25);
 
             bool result = AreCollectionsEquals(persons, expected);
             Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ShouldBeFast()
+        {
+            Stopwatch sp = new Stopwatch();
+            var target = new FilterExpression<Person>();
+
+            target.Start(p => p.Name.Contains("o")).And(p => p.Age <= 25);
+
+            sp.Start();
+            var persons = peoples.Where(p => target.ResultExpression(p));
+            sp.Stop();
+            var e1 = sp.ElapsedTicks;
+            sp.Restart();
+            var expected = peoples.Where(p => p.Name.Contains("o"));
+            expected = expected.Where(p => p.Age <= 25);
+            sp.Stop();
+            var e2 = sp.ElapsedTicks;
+            Assert.IsTrue(e1 < e2);
         }
 
         private bool AreCollectionsEquals(IEnumerable<Person> persons, IEnumerable<Person> expected)
