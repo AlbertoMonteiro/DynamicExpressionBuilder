@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="fb8b8a2a-c130-4b03-a733-8c1fbbc6c29a" name="Alberto@ALBERTO-PC 2011-06-16 07:55:26" runUser="Alberto-PC\Alberto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4a4c0338-46f7-45f6-a07a-14435562145d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Alberto_ALBERTO-PC 2011-06-16 07_55_26">
+      <DeploymentItem filename="C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\bin\Debug\DynamicExpressionBuilder.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-06-16T07:55:26.7238505-03:00" queuing="2011-06-16T07:55:27.0178673-03:00" start="2011-06-16T07:55:27.0848712-03:00" finish="2011-06-16T08:26:50.9896244-03:00" />
+  <ResultSummary outcome="Aborted">
+    <Counters total="4" executed="2" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="1" notRunnable="0" notExecuted="2" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="ReturnSameValueWhenUseExpressionOr" storage="c:\projetosgit\dynamicexpressionbuilder\dynamicexpressionbuilder\dynamicexpressionbuildertest\bin\debug\dynamicexpressionbuildertest.dll" id="649c718a-29c9-5aef-60e8-5ab01cb7bf94">
+      <Execution id="b2500e6d-4d7b-42f8-98da-3c06e958fe7b" />
+      <TestMethod codeBase="C:/ProjetosGit/DynamicExpressionBuilder/DynamicExpressionBuilder/DynamicExpressionBuilderTest/bin/Debug/DynamicExpressionBuilderTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DynamicExpressionBuilderTest.FilterExpressionTest, DynamicExpressionBuilderTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReturnSameValueWhenUseExpressionOr" />
+    </UnitTest>
+    <UnitTest name="ShouldBeEqualsWithChainedWheres" storage="c:\projetosgit\dynamicexpressionbuilder\dynamicexpressionbuilder\dynamicexpressionbuildertest\bin\debug\dynamicexpressionbuildertest.dll" id="a091c62d-cbd8-20bf-38ee-4c2e0c08d4f7">
+      <Execution id="d7e60dbf-7961-4848-b8e9-d7677a297e41" />
+      <TestMethod codeBase="C:/ProjetosGit/DynamicExpressionBuilder/DynamicExpressionBuilder/DynamicExpressionBuilderTest/bin/Debug/DynamicExpressionBuilderTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DynamicExpressionBuilderTest.FilterExpressionTest, DynamicExpressionBuilderTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ShouldBeEqualsWithChainedWheres" />
+    </UnitTest>
+    <UnitTest name="ShouldBeFast" storage="c:\projetosgit\dynamicexpressionbuilder\dynamicexpressionbuilder\dynamicexpressionbuildertest\bin\debug\dynamicexpressionbuildertest.dll" id="b811aea2-ddd9-0281-69a5-a60da703395d">
+      <Execution id="ffa940b3-ef56-4b69-9549-688d05a9704e" />
+      <TestMethod codeBase="C:/ProjetosGit/DynamicExpressionBuilder/DynamicExpressionBuilder/DynamicExpressionBuilderTest/bin/Debug/DynamicExpressionBuilderTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DynamicExpressionBuilderTest.FilterExpressionTest, DynamicExpressionBuilderTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ShouldBeFast" />
+    </UnitTest>
+    <UnitTest name="ReturnSameValueWhenUseExpressionAnd" storage="c:\projetosgit\dynamicexpressionbuilder\dynamicexpressionbuilder\dynamicexpressionbuildertest\bin\debug\dynamicexpressionbuildertest.dll" id="2c0d7cc5-6ae9-fd35-7a1a-c031abd40cce">
+      <Execution id="b48bbc4c-827b-47e5-a2d9-057227ad9491" />
+      <TestMethod codeBase="C:/ProjetosGit/DynamicExpressionBuilder/DynamicExpressionBuilder/DynamicExpressionBuilderTest/bin/Debug/DynamicExpressionBuilderTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DynamicExpressionBuilderTest.FilterExpressionTest, DynamicExpressionBuilderTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReturnSameValueWhenUseExpressionAnd" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2c0d7cc5-6ae9-fd35-7a1a-c031abd40cce" executionId="b48bbc4c-827b-47e5-a2d9-057227ad9491" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="649c718a-29c9-5aef-60e8-5ab01cb7bf94" executionId="b2500e6d-4d7b-42f8-98da-3c06e958fe7b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a091c62d-cbd8-20bf-38ee-4c2e0c08d4f7" executionId="d7e60dbf-7961-4848-b8e9-d7677a297e41" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="b811aea2-ddd9-0281-69a5-a60da703395d" executionId="ffa940b3-ef56-4b69-9549-688d05a9704e" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="b48bbc4c-827b-47e5-a2d9-057227ad9491" testId="2c0d7cc5-6ae9-fd35-7a1a-c031abd40cce" testName="ReturnSameValueWhenUseExpressionAnd" computerName="ALBERTO-PC" duration="00:04:17.0513629" startTime="2011-06-16T07:55:27.1238734-03:00" endTime="2011-06-16T07:59:44.5986001-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="PassedButRunAborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b48bbc4c-827b-47e5-a2d9-057227ad9491">
+    </UnitTestResult>
+    <UnitTestResult executionId="b2500e6d-4d7b-42f8-98da-3c06e958fe7b" testId="649c718a-29c9-5aef-60e8-5ab01cb7bf94" testName="ReturnSameValueWhenUseExpressionOr" computerName="ALBERTO-PC" duration="00:27:00.9077106" startTime="2011-06-16T07:59:44.6296019-03:00" endTime="2011-06-16T08:26:45.5373125-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b2500e6d-4d7b-42f8-98da-3c06e958fe7b">
+      <Output>
+        <ErrorInfo>
+          <Message>User aborted test run.</Message>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="d7e60dbf-7961-4848-b8e9-d7677a297e41" testId="a091c62d-cbd8-20bf-38ee-4c2e0c08d4f7" testName="ShouldBeEqualsWithChainedWheres" computerName="ALBERTO-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="d7e60dbf-7961-4848-b8e9-d7677a297e41">
+    </UnitTestResult>
+    <UnitTestResult executionId="ffa940b3-ef56-4b69-9549-688d05a9704e" testId="b811aea2-ddd9-0281-69a5-a60da703395d" testName="ShouldBeFast" computerName="ALBERTO-PC" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="NotExecuted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="ffa940b3-ef56-4b69-9549-688d05a9704e">
+    </UnitTestResult>
+  </Results>
+</TestRun>

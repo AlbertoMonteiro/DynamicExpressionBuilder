@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="a643d037-3991-495c-a024-692f3bff508a" name="Alberto@ALBERTO-PC 2011-06-15 23:05:49" runUser="Alberto-PC\Alberto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4a4c0338-46f7-45f6-a07a-14435562145d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Alberto_ALBERTO-PC 2011-06-15 23_05_49">
+      <DeploymentItem filename="C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\bin\Debug\DynamicExpressionBuilder.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-06-15T23:05:49.9225190-03:00" queuing="2011-06-15T23:05:49.9845225-03:00" start="2011-06-15T23:05:50.1935345-03:00" finish="2011-06-15T23:05:52.7416802-03:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="1" executed="1" passed="1" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="ShouldBeFasterThanChainedWheres" storage="c:\projetosgit\dynamicexpressionbuilder\dynamicexpressionbuilder\dynamicexpressionbuildertest\bin\debug\dynamicexpressionbuildertest.dll" id="36d39790-ed17-debb-38ee-b7183925febe">
+      <Execution id="e32c1d40-5d34-484c-819a-c5b57187c465" />
+      <TestMethod codeBase="C:/ProjetosGit/DynamicExpressionBuilder/DynamicExpressionBuilder/DynamicExpressionBuilderTest/bin/Debug/DynamicExpressionBuilderTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DynamicExpressionBuilderTest.FilterExpressionTest, DynamicExpressionBuilderTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ShouldBeFasterThanChainedWheres" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="36d39790-ed17-debb-38ee-b7183925febe" executionId="e32c1d40-5d34-484c-819a-c5b57187c465" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="e32c1d40-5d34-484c-819a-c5b57187c465" testId="36d39790-ed17-debb-38ee-b7183925febe" testName="ShouldBeFasterThanChainedWheres" computerName="ALBERTO-PC" duration="00:00:02.1459069" startTime="2011-06-15T23:05:50.2095354-03:00" endTime="2011-06-15T23:05:52.7106785-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e32c1d40-5d34-484c-819a-c5b57187c465">
+    </UnitTestResult>
+  </Results>
+</TestRun>

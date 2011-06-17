@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="368dd27a-44bd-4c3f-bd7a-1b25f628401f" name="Alberto@ALBERTO-PC 2011-06-16 07:46:56" runUser="Alberto-PC\Alberto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4a4c0338-46f7-45f6-a07a-14435562145d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Alberto_ALBERTO-PC 2011-06-16 07_46_56">
+      <DeploymentItem filename="C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\bin\Debug\DynamicExpressionBuilder.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-06-16T07:46:56.3526590-03:00" queuing="2011-06-16T07:47:02.1329896-03:00" start="2011-06-16T07:47:02.4290065-03:00" finish="2011-06-16T07:48:38.7415153-03:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="1" executed="1" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="ALBERTO-PC" outcome="Error" timestamp="2011-06-16T07:48:38.7195140-03:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="ReturnSameValueWhenUseExpressionAnd" storage="c:\projetosgit\dynamicexpressionbuilder\dynamicexpressionbuilder\dynamicexpressionbuildertest\bin\debug\dynamicexpressionbuildertest.dll" id="2c0d7cc5-6ae9-fd35-7a1a-c031abd40cce">
+      <Execution id="21726bb0-7cf7-4c37-badf-f1541b9e27e2" />
+      <TestMethod codeBase="C:/ProjetosGit/DynamicExpressionBuilder/DynamicExpressionBuilder/DynamicExpressionBuilderTest/bin/Debug/DynamicExpressionBuilderTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DynamicExpressionBuilderTest.FilterExpressionTest, DynamicExpressionBuilderTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ReturnSameValueWhenUseExpressionAnd" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="2c0d7cc5-6ae9-fd35-7a1a-c031abd40cce" executionId="21726bb0-7cf7-4c37-badf-f1541b9e27e2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="21726bb0-7cf7-4c37-badf-f1541b9e27e2" testId="2c0d7cc5-6ae9-fd35-7a1a-c031abd40cce" testName="ReturnSameValueWhenUseExpressionAnd" computerName="ALBERTO-PC" duration="00:01:36.0614944" startTime="2011-06-16T07:47:02.6800209-03:00" endTime="2011-06-16T07:48:38.7415153-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="21726bb0-7cf7-4c37-badf-f1541b9e27e2">
+    </UnitTestResult>
+  </Results>
+</TestRun>

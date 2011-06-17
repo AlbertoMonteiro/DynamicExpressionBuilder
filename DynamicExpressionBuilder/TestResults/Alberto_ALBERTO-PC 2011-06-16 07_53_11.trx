@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="0e44e6c5-391f-4f25-9e68-5a5e05b0bb7a" name="Alberto@ALBERTO-PC 2011-06-16 07:53:11" runUser="Alberto-PC\Alberto" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="4a4c0338-46f7-45f6-a07a-14435562145d">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Alberto_ALBERTO-PC 2011-06-16 07_53_11">
+      <DeploymentItem filename="C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\bin\Debug\DynamicExpressionBuilder.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-06-16T07:53:11.4621140-03:00" queuing="2011-06-16T07:53:13.2772178-03:00" start="2011-06-16T07:53:13.5602340-03:00" finish="2011-06-16T07:53:31.7152724-03:00" />
+  <ResultSummary outcome="Failed">
+    <Counters total="1" executed="1" error="0" failed="1" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" passed="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="ShouldBeFast" storage="c:\projetosgit\dynamicexpressionbuilder\dynamicexpressionbuilder\dynamicexpressionbuildertest\bin\debug\dynamicexpressionbuildertest.dll" id="b811aea2-ddd9-0281-69a5-a60da703395d">
+      <Execution id="7945159f-b9a1-46a7-8be0-c641eccb84cf" />
+      <TestMethod codeBase="C:/ProjetosGit/DynamicExpressionBuilder/DynamicExpressionBuilder/DynamicExpressionBuilderTest/bin/Debug/DynamicExpressionBuilderTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="DynamicExpressionBuilderTest.FilterExpressionTest, DynamicExpressionBuilderTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ShouldBeFast" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="b811aea2-ddd9-0281-69a5-a60da703395d" executionId="7945159f-b9a1-46a7-8be0-c641eccb84cf" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="7945159f-b9a1-46a7-8be0-c641eccb84cf" testId="b811aea2-ddd9-0281-69a5-a60da703395d" testName="ShouldBeFast" computerName="ALBERTO-PC" duration="00:00:16.5149256" startTime="2011-06-16T07:53:13.8052480-03:00" endTime="2011-06-16T07:53:31.5062605-03:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Failed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="7945159f-b9a1-46a7-8be0-c641eccb84cf">
+      <Output>
+        <ErrorInfo>
+          <Message>Assert.IsTrue failed. </Message>
+          <StackTrace>   em DynamicExpressionBuilderTest.FilterExpressionTest.ShouldBeFast() na C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilderTest\FilterExpressionTest.cs:linha 88
+</StackTrace>
+        </ErrorInfo>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

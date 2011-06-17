@@ -1,0 +1,164 @@
+<Configuration>
+  <SettingsComponent>
+    <string />
+    <integer />
+    <boolean>
+      <setting name="SolutionAnalysisEnabled">False</setting>
+    </boolean>
+  </SettingsComponent>
+  <CompletionStatisticsManager>
+    <ItemStatistics item="Default">
+      <Item value="bool" priority="1" />
+      <Item value="true" priority="2" />
+      <Item value="ConditionalExpression`0" priority="0" />
+      <Item value="return" priority="4" />
+      <Item value="Or`0" priority="0" />
+      <Item value="expression" priority="3" />
+      <Item value="TestInitialize" priority="0" />
+      <Item value="public" priority="0" />
+      <Item value="void" priority="0" />
+      <Item value="class" priority="0" />
+      <Item value="prop" priority="2" />
+      <Item value="string" priority="1" />
+      <Item value="int" priority="0" />
+      <Item value="new" priority="4" />
+      <Item value="Person`0" priority="3" />
+      <Item value="Person" priority="1" />
+      <Item value="Name" priority="1" />
+      <Item value="name" priority="0" />
+      <Item value="Age" priority="1" />
+      <Item value="age" priority="0" />
+      <Item value="Working" priority="2" />
+      <Item value="working" priority="0" />
+      <Item value="peoples" priority="3" />
+      <Item value="Assert`0" priority="1" />
+      <Item value="persons" priority="6" />
+      <Item value="var" priority="0" />
+      <Item value="p" priority="4" />
+      <Item value="target" priority="0" />
+      <Item value="override" priority="1" />
+      <Item value="if" priority="1" />
+      <Item value="obj" priority="1" />
+      <Item value="is" priority="0" />
+      <Item value="person" priority="2" />
+      <Item value="expected" priority="6" />
+      <Item value="false" priority="1" />
+      <Item value="for" priority="1" />
+      <Item value="Stopwatch" priority="1" />
+      <Item value="sp" priority="11" />
+      <Item value="timeWithFilter" priority="0" />
+      <Item value="i" priority="1" />
+      <Item value="Guid`0" priority="0" />
+      <Item value="completeExpression" priority="0" />
+      <Item value="e1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@Microsoft.VisualStudio.TestTools.UnitTesting.Assert">
+      <Item value="AreEqual`0" priority="1" />
+      <Item value="AreSame`0" priority="0" />
+      <Item value="IsTrue`0" priority="3" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.List`1">
+      <Item value="Where`1" priority="0" />
+      <Item value="Add`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DynamicExpressionBuilderTest.Person">
+      <Item value="Name" priority="2" />
+      <Item value="Age" priority="2" />
+      <Item value="Working" priority="1" />
+      <Item value="Equals`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.String">
+      <Item value="Contains`0" priority="1" />
+      <Item value="Equals`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:DynamicExpressionBuilder.FilterExpression`1">
+      <Item value="Start`0" priority="0" />
+      <Item value="And`0" priority="1" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Int32">
+      <Item value="Equals`0" priority="0" />
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Boolean">
+      <Item value="Equals`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.String">
+      <Item value="Format`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Collections.Generic.IEnumerable`1">
+      <Item value="Count`1" priority="2" />
+      <Item value="Concat`1" priority="0" />
+      <Item value="ElementAt`1" priority="1" />
+      <Item value="Where`1" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Diagnostics.Stopwatch">
+      <Item value="Start`0" priority="1" />
+      <Item value="Stop`0" priority="4" />
+      <Item value="ElapsedMilliseconds" priority="1" />
+      <Item value="Reset`0" priority="0" />
+      <Item value="ElapsedTicks" priority="3" />
+      <Item value="Restart`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:@System.Guid">
+      <Item value="NewGuid`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Guid">
+      <Item value="ToString`0" priority="0" />
+    </ItemStatistics>
+    <ItemStatistics item="Qualified:System.Linq.Expressions.Expression`1">
+      <Item value="Compile`0" priority="1" />
+    </ItemStatistics>
+  </CompletionStatisticsManager>
+  <RecentFiles>
+    <RecentFiles>
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:TypeFilterCommand.cs" caret="0" fromTop="0" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:Person.cs" caret="1009" fromTop="13" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterCommand.cs" caret="170" fromTop="6" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="337" fromTop="0" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="482" fromTop="17" />
+    </RecentFiles>
+    <RecentEdits>
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="17" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="28" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="12" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="11" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="38" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="23" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="14" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="15" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="11" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2188" fromTop="18" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:Person.cs" caret="400" fromTop="14" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="48" fromTop="0" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="338" fromTop="14" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="1488" fromTop="30" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="2031" fromTop="28" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="973" fromTop="26" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="1481" fromTop="37" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="1619" fromTop="14" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="1321" fromTop="8" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="810" fromTop="5" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="433" fromTop="9" />
+      <File id="8536C1B0-D8BE-40AA-B74F-DB8ED9F00E00/f:FilterExpression.cs" caret="337" fromTop="8" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2760" fromTop="35" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2858" fromTop="34" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2306" fromTop="11" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="2539" fromTop="6" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="1939" fromTop="8" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="1432" fromTop="13" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="923" fromTop="8" />
+      <File id="599AB023-9A52-4EC6-BEDF-7C8205FE2D38/f:FilterExpressionTest.cs" caret="482" fromTop="17" />
+    </RecentEdits>
+  </RecentFiles>
+  <NAntValidationSettings>
+    <NAntPath value="" />
+  </NAntValidationSettings>
+  <UnitTestRunner>
+    <Providers />
+  </UnitTestRunner>
+  <UnitTestRunnerNUnit>
+    <NUnitInstallDir IsNull="False">
+    </NUnitInstallDir>
+    <UseAddins>Never</UseAddins>
+  </UnitTestRunnerNUnit>
+</Configuration>
