@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Linq.Expressions;
 
 namespace DynamicExpressionBuilder
@@ -8,19 +6,29 @@ namespace DynamicExpressionBuilder
     public class FilterExpression<T>
     {
         public Func<T, bool> ResultExpression { get { return GetWhereExpression(); } }
-        private readonly List<FilterCommand<T>> _filtersCommands;
+        private Expression<Func<T, bool>> _filter;
 
         public FilterExpression()
         {
-            _filtersCommands = new List<FilterCommand<T>>();
+            
+        }
+
+        protected FilterExpression(Expression<Func<T, bool>> expression)
+        {
+            _filter = expression;
         }
 
         public FilterExpression<T> Start(Expression<Func<T, bool>> expression)
         {
-            var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.And);
-            _filtersCommands.Add(filterCommand);
-            return this;
+            return Start(expression, true);
         }
+
+        public FilterExpression<T> Start(Expression<Func<T, bool>> expression, bool condition)
+        {
+            _filter = condition ? expression : (x => true);
+            return new FilterExpression<T>(_filter);
+        }
+
 
         public FilterExpression<T> And(Expression<Func<T, bool>> expression)
         {
@@ -31,12 +39,11 @@ namespace DynamicExpressionBuilder
         {
             if (condition)
             {
-                if (_filtersCommands.Count < 1)
-                    throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
-                var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.And);
-                _filtersCommands.Add(filterCommand);
+                Func<T, bool> func = _filter.Compile();
+                Func<T, bool> func2 = expression.Compile();
+                _filter = p => func(p) && func2(p);
             }
-            return this;
+            return new FilterExpression<T>(_filter);
         }
 
         public FilterExpression<T> Or(Expression<Func<T, bool>> expression)
@@ -48,34 +55,16 @@ namespace DynamicExpressionBuilder
         {
             if (condition)
             {
-                if (_filtersCommands.Count < 1)
-                    throw new InvalidExpressionException("Você precisa iniciar a expressão com o método Start");
-                var filterCommand = new FilterCommand<T>(expression, TypeFilterCommand.Or);
-                _filtersCommands.Add(filterCommand);
+                Func<T, bool> func = _filter.Compile();
+                Func<T, bool> func2 = expression.Compile();
+                _filter = p => func(p) || func2(p);
             }
-            return this;
+            return new FilterExpression<T>(_filter);
         }
 
         private Func<T, bool> GetWhereExpression()
         {
-            Expression<Func<T, bool>> filtro = entidade => true;
-
-            foreach (var expression in _filtersCommands)
-            {
-                var func = expression.filter.Compile();
-                var compile1 = filtro.Compile();
-                if (expression.typeCommand == TypeFilterCommand.And)
-                    filtro = entidade => func(entidade) && compile1(entidade);
-                else
-                    filtro = entidade => func(entidade) || compile1(entidade);
-            }
-
-            var invocationExpression = Expression.Invoke(filtro, (IEnumerable<Expression>)filtro.Parameters);
-            var binaryExpression = Expression.AndAlso(filtro.Body, invocationExpression);
-            var andAlso = Expression.AndAlso(binaryExpression, invocationExpression);
-            var lambdaExpression = Expression.Lambda<Func<T, bool>>(andAlso, filtro.Parameters);
-
-            return lambdaExpression.Compile();
+            return _filter.Compile();
         }
 
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DynamicExpressionBuilder;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -9,12 +8,12 @@ namespace DynamicExpressionBuilderTest
     [TestClass]
     public class FilterExpressionTest
     {
-        private List<Person> peoples;
+        private List<Person> _peoples;
 
         [TestInitialize]
         public void StartTest()
         {
-            peoples = new List<Person>
+            _peoples = new List<Person>
                           {
                               new Person("Alberto", 21, true),
                               new Person("Fabio", 24, false),
@@ -28,10 +27,23 @@ namespace DynamicExpressionBuilderTest
         {
             var target = new FilterExpression<Person>();
 
-            target.Start(p => p.Name.Contains("o")).And(p => p.Age <= 25);
+            var filterExpression = target.Start(p => p.Name.Contains("o")).And(p => p.Age <= 25);
+            
+            var persons = _peoples.Where(x => filterExpression.ResultExpression(x));
+            var expected = _peoples.Where(p => p.Name.Contains("o") && p.Age <= 25);
+            bool result = AreCollectionsEquals(persons, expected);
+            Assert.IsTrue(result);
+        }
 
-            var persons = peoples.Where(target.ResultExpression);
-            var expected = peoples.Where(p => p.Name.Contains("o") && p.Age <= 25);
+        [TestMethod]
+        public void ResultExpressionTestHelper2()
+        {
+            var target = new FilterExpression<Person>();
+
+            var filterExpression = target.Start(p => p.Name.Contains("berto")).And(p => p.Age <= 25);
+
+            var persons = _peoples.Where(x => filterExpression.ResultExpression(x));
+            var expected = _peoples.Where(p => p.Name.Contains("berto") && p.Age <= 25);
             bool result = AreCollectionsEquals(persons, expected);
             Assert.IsTrue(result);
         }
