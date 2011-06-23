@@ -1,5 +1,0 @@
-C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\bin\Debug\DynamicExpressionBuilder.dll
-C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\bin\Debug\DynamicExpressionBuilder.pdb
-C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\obj\Debug\ResolveAssemblyReference.cache
-C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\obj\Debug\DynamicExpressionBuilder.dll
-C:\ProjetosGit\DynamicExpressionBuilder\DynamicExpressionBuilder\DynamicExpressionBuilder\obj\Debug\DynamicExpressionBuilder.pdb
