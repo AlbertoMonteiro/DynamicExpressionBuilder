@@ -9,6 +9,8 @@
             Working = working;
         }
 
+        public Person() {}
+
         public string Name { get; set; }
         public int Age { get; set; }
         public bool Working { get; set; }
