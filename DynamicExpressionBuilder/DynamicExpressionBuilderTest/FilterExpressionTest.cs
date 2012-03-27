@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DynamicExpressionBuilder;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -15,7 +16,7 @@ namespace DynamicExpressionBuilderTest
         {
             _peoples = new List<Person>
                           {
-                              new Person("Alberto", 21, true),
+                              new Person("Alberto", 22, true),
                               new Person("Fabio", 24, false),
                               new Person("Abraão", 23, false),
                               new Person("Pedro", 26, false)
@@ -31,7 +32,7 @@ namespace DynamicExpressionBuilderTest
 
             var persons = _peoples.Where(filterExpression.ResultExpression);
             var expected = _peoples.Where(p1 => p1.Name.Contains("o") && p1.Age <= 25);
-            var result = AreCollectionsEquals(persons, expected);
+            var result = AreCollectionsEquals(persons.ToList(), expected.ToList());
             
             Assert.IsTrue(result);
         }
@@ -43,21 +44,51 @@ namespace DynamicExpressionBuilderTest
 
             var filterExpression = target.Start(p => p.Name.Contains("berto")).And(p => p.Age <= 25);
 
-            var persons = _peoples.Where(x => filterExpression.ResultExpression(x));
+            var persons = _peoples.Where(filterExpression.ResultExpression);
             var expected = _peoples.Where(p => p.Name.Contains("berto") && p.Age <= 25);
-            bool result = AreCollectionsEquals(persons, expected);
+            bool result = AreCollectionsEquals(persons.ToList(), expected.ToList());
             Assert.IsTrue(result);
         }
 
-        private bool AreCollectionsEquals(IEnumerable<Person> persons, IEnumerable<Person> expected)
+        [TestMethod]
+        public void ResultExpressionTestHelper3()
         {
-            if(persons.Count() != expected.Count()) return false;
-            for (int i = 0; i < persons.Count(); i++)
-            {
-                if (!persons.ElementAt(i).Equals(expected.ElementAt(i)))
-                    return false;
-            }
-            return true;
+            var target = new FilterExpression<Person>();
+
+            var persons = _peoples.Where(target.Start(p => p.Working).ResultExpression);
+            var expected = _peoples.Where(p => p.Working);
+            bool result = AreCollectionsEquals(persons.ToList(), expected.ToList());
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ResultExpressionTestHelper4()
+        {
+            var target = new FilterExpression<Person>();
+
+            var persons = _peoples.Where(target.Start(p => p is Person).ResultExpression);
+            var expected = _peoples.Where(p => p is Person);
+            bool result = AreCollectionsEquals(persons.ToList(), expected.ToList());
+            Assert.IsTrue(result);
+        }
+
+        [TestMethod]
+        public void ResultExpressionTestHelper5()
+        {
+            var target = new FilterExpression<Person>();
+
+            var persons = _peoples.Where(target.Start(p => p is Int32).ResultExpression);
+            var expected = _peoples.Where(p => p is Person);
+            bool result = AreCollectionsEquals(persons.ToList(), expected.ToList());
+            Assert.IsFalse(result);
+        }
+
+        private bool AreCollectionsEquals(List<Person> persons, IList<Person> expected)
+        {
+            if(persons.Count() != expected.Count()) 
+                return false;
+
+            return !persons.Where((person, i) => !person.Equals(expected[i])).Any();
         }
     }
 }
