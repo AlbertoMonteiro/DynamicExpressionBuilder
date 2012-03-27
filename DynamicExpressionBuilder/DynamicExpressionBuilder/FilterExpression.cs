@@ -5,20 +5,20 @@ using System.Reflection;
 
 namespace DynamicExpressionBuilder
 {
-    public class FilterExpression<T> where T : new()
+    public class FilterExpression<T>
     {
         public Expression<Func<T, bool>> filter;
 
-        public FilterExpression() { }
+        public FilterExpression() {}
 
         protected FilterExpression(Expression<Func<T, bool>> expression)
         {
             filter = expression;
         }
 
-        public FilterExpression<T> Start()
+        public Func<T, bool> ResultExpression
         {
-            return this;
+            get { return filter.Compile(); }
         }
 
         public FilterExpression<T> Start(Expression<Func<T, bool>> expression)
@@ -39,19 +39,9 @@ namespace DynamicExpressionBuilder
 
         public FilterExpression<T> And(Expression<Func<T, bool>> expression, bool condition)
         {
-            ParameterExpression[] parameters = expression.Parameters
-                .Select(NewParameter)
-                .ToArray();
+            ParameterExpression parameter = expression.Parameters.Select(NewParameter).First();
 
-            if (condition)
-            {
-                Expression exp1 = RebuildExpression(filter.Body, parameters[0]);
-                Expression exp2 = RebuildExpression(expression.Body, parameters[0]);
-                if (filter != null)
-                    filter = (Expression<Func<T, bool>>)Expression.Lambda(Expression.AndAlso(exp1, exp2), parameters);
-                else if (filter == null)
-                    filter = expression;
-            }
+            CombineExp(expression, condition, parameter, Expression.AndAlso);
 
             return this;
         }
@@ -63,56 +53,47 @@ namespace DynamicExpressionBuilder
 
         public FilterExpression<T> Or(Expression<Func<T, bool>> expression, bool condition)
         {
-            ParameterExpression[] parameters = expression.Parameters
-                .Select(NewParameter)
-                .ToArray();
+            ParameterExpression parameter = expression.Parameters.Select(NewParameter).First();
 
-            if (condition)
-            {
-                Expression exp1 = RebuildExpression(filter.Body, parameters[0]);
-                Expression exp2 = RebuildExpression(expression.Body, parameters[0]);
-                if (filter != null)
-                    filter = (Expression<Func<T, bool>>)Expression.Lambda(Expression.Or(exp1, exp2), parameters);
-                else if (filter == null)
-                    filter = expression;
-            }
+            CombineExp(expression, condition, parameter, Expression.Or);
 
             return this;
         }
 
-        private static Expression RebuildExpression(Expression body, ParameterExpression parameters)
+        private void CombineExp(Expression<Func<T, bool>> expression, bool condition, ParameterExpression parameter, Func<Expression, Expression, BinaryExpression> exp)
         {
-            if (body is MethodCallExpression)
-            {
-                var methodCallExpression = (MethodCallExpression)body;
-                Expression expression = RebuildExpression(methodCallExpression.Object, parameters);
-                return Expression.Call(expression, methodCallExpression.Method, methodCallExpression.Arguments);
-            }
-            if (body is MemberExpression)
-            {
-                var memberExpression = (MemberExpression)body;
-                return Expression.Property(parameters, (PropertyInfo)memberExpression.Member);
-            }
-            if (body is BinaryExpression)
-            {
-                var binaryExpression = (BinaryExpression)body;
-                Expression left = RebuildExpression(binaryExpression.Left, parameters);
-                Expression right = RebuildExpression(binaryExpression.Right, parameters);
-                return Expression.MakeBinary(binaryExpression.NodeType, left, right);
-            }
-            if (body is ConstantExpression)
-                return body;
-            return Expression.Empty();
+            if (condition)
+                if (filter != null)
+                {
+                    Expression left = Rebuild(filter.Body, parameter);
+                    Expression right = Rebuild(expression.Body, parameter);
+                    filter = (Expression<Func<T, bool>>) Expression.Lambda(exp(left, right), parameter);
+                } else if (filter == null)
+                    filter = expression;
+        }
+
+        private static Expression Rebuild(Expression body, ParameterExpression parameters)
+        {
+            var callExp = body as MethodCallExpression;
+            if (callExp != null)
+                return Expression.Call(Rebuild(callExp.Object, parameters), callExp.Method, callExp.Arguments);
+
+            var memberExp = body as MemberExpression;
+            if (memberExp != null)
+                return Expression.Property(parameters, (PropertyInfo) memberExp.Member);
+
+            var binExp = body as BinaryExpression;
+            if (binExp != null)
+                return Expression.MakeBinary(binExp.NodeType,
+                                             Rebuild(binExp.Left, parameters),
+                                             Rebuild(binExp.Right, parameters));
+
+            return body;
         }
 
         private static ParameterExpression NewParameter(ParameterExpression parameterExpression)
         {
             return Expression.Variable(parameterExpression.Type, parameterExpression.Name);
-        }
-
-        public Func<T, bool> ResultExpression
-        {
-            get { return filter.Compile(); }
         }
     }
 }
