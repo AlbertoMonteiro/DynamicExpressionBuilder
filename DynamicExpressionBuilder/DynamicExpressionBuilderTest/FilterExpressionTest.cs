@@ -26,19 +26,6 @@ namespace DynamicExpressionBuilderTest
         public void ResultExpressionTestHelper()
         {
             var target = new FilterExpression<Person>();
-            /*var type = typeof (Person);
-            var methodInfo = typeof(string).GetMethod("Contains");
-            
-            var parameterExpression = Expression.Parameter(type, "p");
-            var getAge = Expression.Property(parameterExpression, "Age");
-
-            var getName = Expression.Property(parameterExpression, "Name");
-            var ageGreaterThan25 = Expression.LessThanOrEqual(getAge, Expression.Constant(25));
-            
-            var containsName = Expression.Call(getName, methodInfo, new Expression[] { Expression.Constant("o") });
-
-            var lambdaExpression = Expression.Lambda(typeof(Func<Person, bool>), Expression.AndAlso(containsName, ageGreaterThan25), parameterExpression);
-            var method = (Func<Person, bool>)lambdaExpression.Compile();*/
 
             var filterExpression = target.Start(p => p.Name.Contains("o")).And(p => p.Age <= 25);
 
