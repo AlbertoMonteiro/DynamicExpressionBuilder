@@ -16,10 +16,10 @@ namespace DynamicExpressionBuilderTest
         {
             _peoples = new List<Person>
                           {
-                              new Person("Alberto", 22, true),
-                              new Person("Fabio", 24, false),
-                              new Person("Abraão", 23, false),
-                              new Person("Pedro", 26, false)
+                              new Person("Alberto", 22, true, new Task("Teste 2", DateTime.Today)),
+                              new Person("Fabio", 24, false, new Task("Teste 2", DateTime.Today)),
+                              new Person("Abraão", 23, false, new Task("Teste 2", DateTime.Today)),
+                              new Person("Pedro", 26, false, new Task("Teste 2", DateTime.Today))
                           };
         }
 
@@ -28,12 +28,18 @@ namespace DynamicExpressionBuilderTest
         {
             var target = new FilterExpression<Person>();
 
-            var filterExpression = target.Start(p => p.Name.Contains("o")).And(p => p.Age <= 25);
+            var filterExpression = target.Start(p => p.Name.Contains("o"));
+            filterExpression = filterExpression.And(p => p.Age <= 25);
+            filterExpression = filterExpression.And(p => p.Tasks.Any(x => x.When == DateTime.Today));
+            filterExpression = filterExpression.And(p => p.Working);
 
             var persons = _peoples.Where(filterExpression.ResultExpression);
-            var expected = _peoples.Where(p1 => p1.Name.Contains("o") && p1.Age <= 25);
+            var expected = _peoples.Where(p1 => p1.Name.Contains("o") &&
+                                                p1.Age <= 25 &&
+                                                p1.Tasks.Any(x => x.When == DateTime.Today) &&
+                                                p1.Working);
             var result = AreCollectionsEquals(persons.ToList(), expected.ToList());
-            
+
             Assert.IsTrue(result);
         }
 
@@ -85,7 +91,7 @@ namespace DynamicExpressionBuilderTest
 
         private bool AreCollectionsEquals(List<Person> persons, IList<Person> expected)
         {
-            if(persons.Count() != expected.Count()) 
+            if (persons.Count() != expected.Count())
                 return false;
 
             return !persons.Where((person, i) => !person.Equals(expected[i])).Any();

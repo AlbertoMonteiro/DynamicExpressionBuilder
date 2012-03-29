@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -76,7 +77,10 @@ namespace DynamicExpressionBuilder
         {
             var callExp = body as MethodCallExpression;
             if (callExp != null)
-                return Expression.Call(Rebuild(callExp.Object, parameters), callExp.Method, callExp.Arguments);
+            {
+                var arguments = callExp.Arguments.Select(expression => Rebuild(expression, parameters));
+                return Expression.Call(Rebuild(callExp.Object, parameters), callExp.Method, arguments);
+            }
 
             var memberExp = body as MemberExpression;
             if (memberExp != null)
