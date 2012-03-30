@@ -52,6 +52,7 @@
     <Compile Include="FilterExpressionTest.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Task.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DynamicExpressionBuilder\DynamicExpressionBuilder.csproj">
